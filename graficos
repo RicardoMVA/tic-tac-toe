@@ -1,0 +1,73 @@
+def tabuleiro_inicio():
+    global linha_0, linha_1, linha_2, linha_3
+    global linha_4, linha_5, linha_6
+    global tabuleiro
+    linha_0 = ('                            \n')
+    linha_1 = ('        A       B       C   \n')
+    linha_2 = ('            |       |       \n')
+    linha_3 = ('   1        |       |       \n')
+    linha_4 = ('     _______|_______|_______\n')
+    linha_5 = ('   2        |       |       \n')
+    linha_6 = ('   3        |       |       \n')
+    tabuleiro = (linha_0 + linha_1 + linha_2 + linha_3
+    	         + linha_4 + linha_2 + linha_5 + linha_4
+    	         + linha_2 + linha_6 + linha_2 + linha_0)
+    return tabuleiro
+
+
+def circulo(str):
+	global linha_3, linha_5, linha_6
+	global tabuleiro
+
+	if str == 'a1':
+		linha_3 = linha_3[:8] + 'O' + linha_3[9:]
+	elif str == 'a2':
+		linha_5 = linha_5[:8] + 'O' + linha_5[9:]
+	elif str == 'a3':
+		linha_6 = linha_6[:8] + 'O' + linha_6[9:]
+	elif str == 'b1':
+		linha_3 = linha_3[:16] + 'O' + linha_3[17:]
+	elif str == 'b2':
+		linha_5 = linha_5[:16] + 'O' + linha_5[17:]
+	elif str == 'b3':
+		linha_6 = linha_6[:16] + 'O' + linha_6[17:]
+	elif str == 'c1':
+		linha_3 = linha_3[:24] + 'O' + linha_3[25:]
+	elif str == 'c2':
+		linha_5 = linha_5[:24] + 'O' + linha_5[25:]
+	elif str == 'c3':
+		linha_6 = linha_6[:24] + 'O' + linha_6[25:]
+
+	tabuleiro = (linha_0 + linha_1 + linha_2 + linha_3
+    	         + linha_4 + linha_2 + linha_5 + linha_4
+    	         + linha_2 + linha_6 + linha_2 + linha_0)
+	return tabuleiro
+
+
+def xis(str):
+	global linha_3, linha_5, linha_6
+	global tabuleiro
+
+	if str == 'a1':
+		linha_3 = linha_3[:8] + 'X' + linha_3[9:]
+	elif str == 'a2':
+		linha_5 = linha_5[:8] + 'X' + linha_5[9:]
+	elif str == 'a3':
+		linha_6 = linha_6[:8] + 'X' + linha_6[9:]
+	elif str == 'b1':
+		linha_3 = linha_3[:16] + 'X' + linha_3[17:]
+	elif str == 'b2':
+		linha_5 = linha_5[:16] + 'X' + linha_5[17:]
+	elif str == 'b3':
+		linha_6 = linha_6[:16] + 'X' + linha_6[17:]
+	elif str == 'c1':
+		linha_3 = linha_3[:24] + 'X' + linha_3[25:]
+	elif str == 'c2':
+		linha_5 = linha_5[:24] + 'X' + linha_5[25:]
+	elif str == 'c3':
+		linha_6 = linha_6[:24] + 'X' + linha_6[25:]
+
+	tabuleiro = (linha_0 + linha_1 + linha_2 + linha_3
+    	         + linha_4 + linha_2 + linha_5 + linha_4
+    	         + linha_2 + linha_6 + linha_2 + linha_0)
+	return tabuleiro
