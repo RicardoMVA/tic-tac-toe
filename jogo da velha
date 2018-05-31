@@ -17,8 +17,8 @@ print(graficos.tabuleiro_inicio())
 def jogo():
 
 	#
-  # Nome dos jogadores:
-  #
+  	# Nome dos jogadores:
+ 	#
 	global jogador_1, jogador_2
 	
 	while True:
@@ -75,8 +75,7 @@ def jogo():
 	#
 	# Lógica do jogo:
 	#
-	lista_de_jogadas = ['a1', 'a2', 'a3', 'b1', 'b2',
-						'b3', 'c1', 'c2', 'c3']
+	lista_de_jogadas = ['a1', 'a2', 'a3', 'b1', 'b2','b3', 'c1', 'c2', 'c3']
 	jogada_1 = 0
 	lista_1 = []
 	vitoria_1 = False
@@ -110,8 +109,7 @@ def jogo():
 		
 		else:
 			while vitoria_1 == False and vitoria_2 == False:
-				jogada_1 = input('\n  %s, escolha uma coordenada: ' 
-								  %(jogador_1)).lower()				
+				jogada_1 = input('\n  %s, escolha uma coordenada: ' %(jogador_1)).lower()			  				
 				if jogada_1 not in lista_de_jogadas:
 					print('  Jogada inválida')
 					continue
@@ -136,8 +134,7 @@ def jogo():
 							break
 					else:
 						while True:
-							jogada_2 = input('\n  %s, escolha uma coordenada: ' 
-					 			  			  %(jogador_2)).lower()							
+							jogada_2 = input('\n  %s, escolha uma coordenada: ' %(jogador_2)).lower()  			  							
 							if jogada_2 not in lista_de_jogadas:
 								print('  Jogada inválida')
 								continue
