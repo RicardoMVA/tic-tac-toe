@@ -12,7 +12,7 @@ print("  Then, let's play!")
 time.sleep(1.5)
 print(graphics.board_start())
 
-def jogo():
+def game_on():
 
 	#
   	# Nome dos jogadores:
@@ -71,7 +71,7 @@ def jogo():
 			return False
 
 	#
-	# Lógica do jogo:
+	# Lógica do game_on:
 	#
 	lista_de_jogadas = ['a1', 'a2', 'a3', 'b1', 'b2','b3', 'c1', 'c2', 'c3']
 	jogada_1 = 0
@@ -88,7 +88,7 @@ def jogo():
 			repetir = input('  Want to play again?\n  ')
 			if repetir == 'yes' or repetir == 'Yes' or repetir == 'y':
 				graphics.board_start()
-				jogo()
+				game_on()
 				break
 			else:
 				print('  No? Ok, thanks for playing!')
@@ -99,7 +99,7 @@ def jogo():
 			repetir = input('  Want to play again?\n  ')
 			if repetir == 'yes' or repetir == 'Yes' or repetir == 'y':
 				graphics.board_start()
-				jogo()
+				game_on()
 				break
 			else:
 				print('  No? Ok, thanks for playing!')
@@ -125,7 +125,7 @@ def jogo():
 						repetir = input('  Want to play again?\n  ')
 						if repetir == 'yes' or repetir == 'Yes' or repetir == 'y':
 							graphics.board_start()
-							jogo()
+							game_on()
 							break
 						else:
 							print('  No? Ok, thanks for playing!')
@@ -150,4 +150,4 @@ def jogo():
 					continue			
 			continue
 
-jogo()
+game_on()
