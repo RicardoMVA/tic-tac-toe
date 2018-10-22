@@ -44,7 +44,7 @@ def circle(str):
 	return board
 
 
-def xis(str):
+def ex(str):
 	global line_3, line_5, line_6
 	global board
 
