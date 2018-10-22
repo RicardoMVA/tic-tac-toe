@@ -80,13 +80,13 @@ def game_on():
 	play_2 = 0
 	lst_2 = []
 	winner_2 = False
-	repetir = 0
+	repeat = 0
 
 	while True:
 		if winner_1 == True:
 			print('  %s won the game!' %(player_1))
-			repetir = input('  Want to play again?\n  ')
-			if repetir == 'yes' or repetir == 'Yes' or repetir == 'y':
+			repeat = input('  Want to play again?\n  ')
+			if repeat == 'yes' or repeat == 'Yes' or repeat == 'y':
 				graphics.board_start()
 				game_on()
 				break
@@ -96,8 +96,8 @@ def game_on():
 
 		elif winner_2 == True:
 			print('  %s won the game!' %(player_2))
-			repetir = input('  Want to play again?\n  ')
-			if repetir == 'yes' or repetir == 'Yes' or repetir == 'y':
+			repeat = input('  Want to play again?\n  ')
+			if repeat == 'yes' or repeat == 'Yes' or repeat == 'y':
 				graphics.board_start()
 				game_on()
 				break
@@ -122,8 +122,8 @@ def game_on():
 						break
 					elif len(lst_1) == 5:
 						print('  Draw!')
-						repetir = input('  Want to play again?\n  ')
-						if repetir == 'yes' or repetir == 'Yes' or repetir == 'y':
+						repeat = input('  Want to play again?\n  ')
+						if repeat == 'yes' or repeat == 'Yes' or repeat == 'y':
 							graphics.board_start()
 							game_on()
 							break
