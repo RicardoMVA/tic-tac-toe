@@ -1,7 +1,7 @@
 def board_start():
     global line_0, line_1, line_2, line_3
     global line_4, line_5, line_6
-    global tabuleiro
+    global board
     line_0 = ('                            \n')
     line_1 = ('        A       B       C   \n')
     line_2 = ('            |       |       \n')
@@ -9,15 +9,15 @@ def board_start():
     line_4 = ('     _______|_______|_______\n')
     line_5 = ('   2        |       |       \n')
     line_6 = ('   3        |       |       \n')
-    tabuleiro = (line_0 + line_1 + line_2 + line_3
+    board = (line_0 + line_1 + line_2 + line_3
     	         + line_4 + line_2 + line_5 + line_4
     	         + line_2 + line_6 + line_2 + line_0)
-    return tabuleiro
+    return board
 
 
 def circulo(str):
 	global line_3, line_5, line_6
-	global tabuleiro
+	global board
 
 	if str == 'a1':
 		line_3 = line_3[:8] + 'O' + line_3[9:]
@@ -38,15 +38,15 @@ def circulo(str):
 	elif str == 'c3':
 		line_6 = line_6[:24] + 'O' + line_6[25:]
 
-	tabuleiro = (line_0 + line_1 + line_2 + line_3
+	board = (line_0 + line_1 + line_2 + line_3
     	         + line_4 + line_2 + line_5 + line_4
     	         + line_2 + line_6 + line_2 + line_0)
-	return tabuleiro
+	return board
 
 
 def xis(str):
 	global line_3, line_5, line_6
-	global tabuleiro
+	global board
 
 	if str == 'a1':
 		line_3 = line_3[:8] + 'X' + line_3[9:]
@@ -67,7 +67,7 @@ def xis(str):
 	elif str == 'c3':
 		line_6 = line_6[:24] + 'X' + line_6[25:]
 
-	tabuleiro = (line_0 + line_1 + line_2 + line_3
+	board = (line_0 + line_1 + line_2 + line_3
     	         + line_4 + line_2 + line_5 + line_4
     	         + line_2 + line_6 + line_2 + line_0)
-	return tabuleiro
+	return board
