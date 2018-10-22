@@ -76,14 +76,14 @@ def game_on():
 	play_list = ['a1', 'a2', 'a3', 'b1', 'b2','b3', 'c1', 'c2', 'c3']
 	play_1 = 0
 	lst_1 = []
-	vitoria_1 = False
+	winner_1 = False
 	jogada_2 = 0
 	lista_2 = []
 	vitoria_2 = False
 	repetir = 0
 
 	while True:
-		if vitoria_1 == True:
+		if winner_1 == True:
 			print('  %s won the game!' %(player_1))
 			repetir = input('  Want to play again?\n  ')
 			if repetir == 'yes' or repetir == 'Yes' or repetir == 'y':
@@ -106,7 +106,7 @@ def game_on():
 				break
 		
 		else:
-			while vitoria_1 == False and vitoria_2 == False:
+			while winner_1 == False and vitoria_2 == False:
 				play_1 = input('\n  %s, pick a coordinate: ' %(player_1)).lower()			  				
 				if play_1 not in play_list:
 					print('  Invalid play')
@@ -116,9 +116,9 @@ def game_on():
 					lst_1.append(play_1)
 					graphics.circle(play_1)									
 					print(graphics.board)
-					vitoria_1 = check_winner(lst_1)
+					winner_1 = check_winner(lst_1)
 					time.sleep(1)
-					if vitoria_1 == True:
+					if winner_1 == True:
 						break
 					elif len(lst_1) == 5:
 						print('  Draw!')
