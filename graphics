@@ -15,7 +15,7 @@ def board_start():
     return board
 
 
-def circulo(str):
+def circle(str):
 	global line_3, line_5, line_6
 	global board
 
