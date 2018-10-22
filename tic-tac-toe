@@ -116,7 +116,7 @@ def jogo():
 				else:
 					lista_de_jogadas.remove(jogada_1)				
 					lista_1.append(jogada_1)
-					graphics.circulo(jogada_1)									
+					graphics.circle(jogada_1)									
 					print(graphics.board)
 					vitoria_1 = checar_vencedor(lista_1)
 					time.sleep(1)
