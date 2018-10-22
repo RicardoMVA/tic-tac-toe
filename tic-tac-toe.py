@@ -78,7 +78,7 @@ def game_on():
 	lst_1 = []
 	winner_1 = False
 	play_2 = 0
-	lista_2 = []
+	lst_2 = []
 	vitoria_2 = False
 	repetir = 0
 
@@ -138,10 +138,10 @@ def game_on():
 								continue
 							else:
 								play_list.remove(play_2)
-								lista_2.append(play_2)
+								lst_2.append(play_2)
 								graphics.ex(play_2)	
 								print(graphics.board)
-								vitoria_2 = check_winner(lista_2)
+								vitoria_2 = check_winner(lst_2)
 								time.sleep(1)
 								if vitoria_2 == True:
 									break
