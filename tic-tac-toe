@@ -117,7 +117,7 @@ def jogo():
 					lista_de_jogadas.remove(jogada_1)				
 					lista_1.append(jogada_1)
 					graphics.circulo(jogada_1)									
-					print(graphics.tabuleiro)
+					print(graphics.board)
 					vitoria_1 = checar_vencedor(lista_1)
 					time.sleep(1)
 					if vitoria_1 == True:
@@ -142,7 +142,7 @@ def jogo():
 								lista_de_jogadas.remove(jogada_2)
 								lista_2.append(jogada_2)
 								graphics.xis(jogada_2)	
-								print(graphics.tabuleiro)
+								print(graphics.board)
 								vitoria_2 = checar_vencedor(lista_2)
 								time.sleep(1)
 								if vitoria_2 == True:
