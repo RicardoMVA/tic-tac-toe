@@ -73,7 +73,7 @@ def game_on():
 	#
 	# Game logic:
 	#
-	lista_de_jogadas = ['a1', 'a2', 'a3', 'b1', 'b2','b3', 'c1', 'c2', 'c3']
+	play_list = ['a1', 'a2', 'a3', 'b1', 'b2','b3', 'c1', 'c2', 'c3']
 	jogada_1 = 0
 	lista_1 = []
 	vitoria_1 = False
@@ -108,11 +108,11 @@ def game_on():
 		else:
 			while vitoria_1 == False and vitoria_2 == False:
 				jogada_1 = input('\n  %s, pick a coordinate: ' %(player_1)).lower()			  				
-				if jogada_1 not in lista_de_jogadas:
+				if jogada_1 not in play_list:
 					print('  Invalid play')
 					continue
 				else:
-					lista_de_jogadas.remove(jogada_1)				
+					play_list.remove(jogada_1)				
 					lista_1.append(jogada_1)
 					graphics.circle(jogada_1)									
 					print(graphics.board)
@@ -133,11 +133,11 @@ def game_on():
 					else:
 						while True:
 							jogada_2 = input('\n  %s, pick a coordinate: ' %(player_2)).lower()  			  							
-							if jogada_2 not in lista_de_jogadas:
+							if jogada_2 not in play_list:
 								print('  Invalid play')
 								continue
 							else:
-								lista_de_jogadas.remove(jogada_2)
+								play_list.remove(jogada_2)
 								lista_2.append(jogada_2)
 								graphics.ex(jogada_2)	
 								print(graphics.board)
