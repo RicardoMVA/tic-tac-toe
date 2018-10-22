@@ -75,7 +75,7 @@ def game_on():
 	#
 	play_list = ['a1', 'a2', 'a3', 'b1', 'b2','b3', 'c1', 'c2', 'c3']
 	play_1 = 0
-	lista_1 = []
+	lst_1 = []
 	vitoria_1 = False
 	jogada_2 = 0
 	lista_2 = []
@@ -113,14 +113,14 @@ def game_on():
 					continue
 				else:
 					play_list.remove(play_1)				
-					lista_1.append(play_1)
+					lst_1.append(play_1)
 					graphics.circle(play_1)									
 					print(graphics.board)
-					vitoria_1 = check_winner(lista_1)
+					vitoria_1 = check_winner(lst_1)
 					time.sleep(1)
 					if vitoria_1 == True:
 						break
-					elif len(lista_1) == 5:
+					elif len(lst_1) == 5:
 						print('  Draw!')
 						repetir = input('  Want to play again?\n  ')
 						if repetir == 'yes' or repetir == 'Yes' or repetir == 'y':
