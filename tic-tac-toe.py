@@ -50,22 +50,22 @@ def game_on():
 	#
 	# Winner check:
 	#
-	def check_winner(lista):
-		if 'a1' in lista and 'a2' in lista and 'a3' in lista:
+	def check_winner(lst):
+		if 'a1' in lst and 'a2' in lst and 'a3' in lst:
 			return True
-		elif 'b1' in lista and 'b2' in lista and 'b3' in lista:
+		elif 'b1' in lst and 'b2' in lst and 'b3' in lst:
 			return True
-		elif 'c1' in lista and 'c2' in lista and 'c3' in lista:
+		elif 'c1' in lst and 'c2' in lst and 'c3' in lst:
 			return True
-		elif 'a1' in lista and 'b1' in lista and 'c1' in lista:
+		elif 'a1' in lst and 'b1' in lst and 'c1' in lst:
 			return True
-		elif 'a2' in lista and 'b2' in lista and 'c2' in lista:
+		elif 'a2' in lst and 'b2' in lst and 'c2' in lst:
 			return True
-		elif 'a3' in lista and 'b3' in lista and 'c3' in lista:
+		elif 'a3' in lst and 'b3' in lst and 'c3' in lst:
 			return True
-		elif 'a1' in lista and 'b2' in lista and 'c3' in lista:
+		elif 'a1' in lst and 'b2' in lst and 'c3' in lst:
 			return True
-		elif 'c1' in lista and 'b2' in lista and 'a3' in lista:
+		elif 'c1' in lst and 'b2' in lst and 'a3' in lst:
 			return True
 		else:
 			return False
