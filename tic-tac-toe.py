@@ -50,7 +50,7 @@ def game_on():
 	#
 	# Winner check:
 	#
-	def checar_vencedor(lista):
+	def check_winner(lista):
 		if 'a1' in lista and 'a2' in lista and 'a3' in lista:
 			return True
 		elif 'b1' in lista and 'b2' in lista and 'b3' in lista:
@@ -116,7 +116,7 @@ def game_on():
 					lista_1.append(jogada_1)
 					graphics.circle(jogada_1)									
 					print(graphics.board)
-					vitoria_1 = checar_vencedor(lista_1)
+					vitoria_1 = check_winner(lista_1)
 					time.sleep(1)
 					if vitoria_1 == True:
 						break
@@ -141,7 +141,7 @@ def game_on():
 								lista_2.append(jogada_2)
 								graphics.ex(jogada_2)	
 								print(graphics.board)
-								vitoria_2 = checar_vencedor(lista_2)
+								vitoria_2 = check_winner(lista_2)
 								time.sleep(1)
 								if vitoria_2 == True:
 									break
