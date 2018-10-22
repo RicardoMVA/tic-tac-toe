@@ -79,7 +79,7 @@ def game_on():
 	winner_1 = False
 	play_2 = 0
 	lst_2 = []
-	vitoria_2 = False
+	winner_2 = False
 	repetir = 0
 
 	while True:
@@ -94,7 +94,7 @@ def game_on():
 				print('  No? Ok, thanks for playing!')
 				break 
 
-		elif vitoria_2 == True:
+		elif winner_2 == True:
 			print('  %s won the game!' %(player_2))
 			repetir = input('  Want to play again?\n  ')
 			if repetir == 'yes' or repetir == 'Yes' or repetir == 'y':
@@ -106,7 +106,7 @@ def game_on():
 				break
 		
 		else:
-			while winner_1 == False and vitoria_2 == False:
+			while winner_1 == False and winner_2 == False:
 				play_1 = input('\n  %s, pick a coordinate: ' %(player_1)).lower()			  				
 				if play_1 not in play_list:
 					print('  Invalid play')
@@ -141,9 +141,9 @@ def game_on():
 								lst_2.append(play_2)
 								graphics.ex(play_2)	
 								print(graphics.board)
-								vitoria_2 = check_winner(lst_2)
+								winner_2 = check_winner(lst_2)
 								time.sleep(1)
-								if vitoria_2 == True:
+								if winner_2 == True:
 									break
 								else:
 									break
