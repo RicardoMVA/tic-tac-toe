@@ -77,7 +77,7 @@ def game_on():
 	play_1 = 0
 	lst_1 = []
 	winner_1 = False
-	jogada_2 = 0
+	play_2 = 0
 	lista_2 = []
 	vitoria_2 = False
 	repetir = 0
@@ -132,14 +132,14 @@ def game_on():
 							break
 					else:
 						while True:
-							jogada_2 = input('\n  %s, pick a coordinate: ' %(player_2)).lower()  			  							
-							if jogada_2 not in play_list:
+							play_2 = input('\n  %s, pick a coordinate: ' %(player_2)).lower()  			  							
+							if play_2 not in play_list:
 								print('  Invalid play')
 								continue
 							else:
-								play_list.remove(jogada_2)
-								lista_2.append(jogada_2)
-								graphics.ex(jogada_2)	
+								play_list.remove(play_2)
+								lista_2.append(play_2)
+								graphics.ex(play_2)	
 								print(graphics.board)
 								vitoria_2 = check_winner(lista_2)
 								time.sleep(1)
