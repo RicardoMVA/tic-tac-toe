@@ -1,6 +1,6 @@
 import time
 import string
-import graficos
+import graphics
 
 print('\n\n  Melhor jogo da velha do universo!')
 time.sleep(1.5)
@@ -12,7 +12,7 @@ print('  Por exemplo: A1, ou B2, entendeu?')
 time.sleep(1.5)
 print('  Então, vamos lá!')
 time.sleep(1.5)
-print(graficos.board_start())
+print(graphics.board_start())
 
 def jogo():
 
@@ -89,7 +89,7 @@ def jogo():
 			print('  %s venceu o jogo!' %(jogador_1))
 			repetir = input('  Deseja jogar novamente?\n  ')
 			if repetir == 'sim' or repetir == 'Sim':
-				graficos.board_start()
+				graphics.board_start()
 				jogo()
 				break
 			else:
@@ -100,7 +100,7 @@ def jogo():
 			print('  %s venceu o jogo!' %(jogador_2))
 			repetir = input('  Deseja jogar novamente?\n  ')
 			if repetir == 'sim' or repetir == 'Sim':
-				graficos.board_start()
+				graphics.board_start()
 				jogo()
 				break
 			else:
@@ -116,8 +116,8 @@ def jogo():
 				else:
 					lista_de_jogadas.remove(jogada_1)				
 					lista_1.append(jogada_1)
-					graficos.circulo(jogada_1)									
-					print(graficos.tabuleiro)
+					graphics.circulo(jogada_1)									
+					print(graphics.tabuleiro)
 					vitoria_1 = checar_vencedor(lista_1)
 					time.sleep(1)
 					if vitoria_1 == True:
@@ -126,7 +126,7 @@ def jogo():
 						print('  Empate!')
 						repetir = input('  Deseja jogar novamente?\n  ')
 						if repetir == 'sim' or repetir == 'Sim':
-							graficos.board_start()
+							graphics.board_start()
 							jogo()
 							break
 						else:
@@ -141,8 +141,8 @@ def jogo():
 							else:
 								lista_de_jogadas.remove(jogada_2)
 								lista_2.append(jogada_2)
-								graficos.xis(jogada_2)	
-								print(graficos.tabuleiro)
+								graphics.xis(jogada_2)	
+								print(graphics.tabuleiro)
 								vitoria_2 = checar_vencedor(lista_2)
 								time.sleep(1)
 								if vitoria_2 == True:
