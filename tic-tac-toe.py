@@ -17,33 +17,33 @@ def game_on():
 	#
   	# Player names:
  	#
-	global jogador_1, jogador_2
+	global player_1, player_2
 	
 	while True:
-		jogador_1 = input('\n  Name of the first player: ')
+		player_1 = input('\n  Name of the first player: ')
 		time.sleep(1)		
-		if jogador_1 == '' or jogador_1 == ' ':
+		if player_1 == '' or player_1 == ' ':
 			print('  Pick a valid name!')
 			time.sleep(1)
 			continue
 		else:
-			print('\n  Hi, ', jogador_1)
+			print('\n  Hi, ', player_1)
 			time.sleep(1)
 			break
 
 	while True:
-		jogador_2 = input('\n  Name of the second player: ')
+		player_2 = input('\n  Name of the second player: ')
 		time.sleep(1)
-		if jogador_2 == jogador_1:
+		if player_2 == player_1:
 			print('  Pick a different name from player 1!')
 			time.sleep(1)
 			continue
-		elif jogador_2 == '' or jogador_2 == ' ':
+		elif player_2 == '' or player_2 == ' ':
 			print('  Pick a valid name!')
 			time.sleep(1)
 			continue
 		else:
-			print('\n  Hi, ', jogador_2)
+			print('\n  Hi, ', player_2)
 			time.sleep(1)
 			break
 
@@ -84,7 +84,7 @@ def game_on():
 
 	while True:
 		if vitoria_1 == True:
-			print('  %s won the game!' %(jogador_1))
+			print('  %s won the game!' %(player_1))
 			repetir = input('  Want to play again?\n  ')
 			if repetir == 'yes' or repetir == 'Yes' or repetir == 'y':
 				graphics.board_start()
@@ -95,7 +95,7 @@ def game_on():
 				break 
 
 		elif vitoria_2 == True:
-			print('  %s won the game!' %(jogador_2))
+			print('  %s won the game!' %(player_2))
 			repetir = input('  Want to play again?\n  ')
 			if repetir == 'yes' or repetir == 'Yes' or repetir == 'y':
 				graphics.board_start()
@@ -107,7 +107,7 @@ def game_on():
 		
 		else:
 			while vitoria_1 == False and vitoria_2 == False:
-				jogada_1 = input('\n  %s, pick a coordinate: ' %(jogador_1)).lower()			  				
+				jogada_1 = input('\n  %s, pick a coordinate: ' %(player_1)).lower()			  				
 				if jogada_1 not in lista_de_jogadas:
 					print('  Invalid play')
 					continue
@@ -132,7 +132,7 @@ def game_on():
 							break
 					else:
 						while True:
-							jogada_2 = input('\n  %s, pick a coordinate: ' %(jogador_2)).lower()  			  							
+							jogada_2 = input('\n  %s, pick a coordinate: ' %(player_2)).lower()  			  							
 							if jogada_2 not in lista_de_jogadas:
 								print('  Invalid play')
 								continue
