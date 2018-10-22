@@ -141,7 +141,7 @@ def jogo():
 							else:
 								lista_de_jogadas.remove(jogada_2)
 								lista_2.append(jogada_2)
-								graphics.xis(jogada_2)	
+								graphics.ex(jogada_2)	
 								print(graphics.board)
 								vitoria_2 = checar_vencedor(lista_2)
 								time.sleep(1)
