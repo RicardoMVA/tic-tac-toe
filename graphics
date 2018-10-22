@@ -1,4 +1,4 @@
-def tabuleiro_inicio():
+def board_start():
     global linha_0, linha_1, linha_2, linha_3
     global linha_4, linha_5, linha_6
     global tabuleiro
