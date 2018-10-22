@@ -12,7 +12,7 @@ print('  Por exemplo: A1, ou B2, entendeu?')
 time.sleep(1.5)
 print('  Então, vamos lá!')
 time.sleep(1.5)
-print(graficos.tabuleiro_inicio())
+print(graficos.board_start())
 
 def jogo():
 
@@ -89,7 +89,7 @@ def jogo():
 			print('  %s venceu o jogo!' %(jogador_1))
 			repetir = input('  Deseja jogar novamente?\n  ')
 			if repetir == 'sim' or repetir == 'Sim':
-				graficos.tabuleiro_inicio()
+				graficos.board_start()
 				jogo()
 				break
 			else:
@@ -100,7 +100,7 @@ def jogo():
 			print('  %s venceu o jogo!' %(jogador_2))
 			repetir = input('  Deseja jogar novamente?\n  ')
 			if repetir == 'sim' or repetir == 'Sim':
-				graficos.tabuleiro_inicio()
+				graficos.board_start()
 				jogo()
 				break
 			else:
@@ -126,7 +126,7 @@ def jogo():
 						print('  Empate!')
 						repetir = input('  Deseja jogar novamente?\n  ')
 						if repetir == 'sim' or repetir == 'Sim':
-							graficos.tabuleiro_inicio()
+							graficos.board_start()
 							jogo()
 							break
 						else:
