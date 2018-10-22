@@ -15,7 +15,7 @@ print(graphics.board_start())
 def game_on():
 
 	#
-  	# Nome dos jogadores:
+  	# Player names:
  	#
 	global jogador_1, jogador_2
 	
@@ -48,7 +48,7 @@ def game_on():
 			break
 
 	#
-	# Checando o vencedor:
+	# Winner check:
 	#
 	def checar_vencedor(lista):
 		if 'a1' in lista and 'a2' in lista and 'a3' in lista:
@@ -71,7 +71,7 @@ def game_on():
 			return False
 
 	#
-	# Lógica do game_on:
+	# Game logic:
 	#
 	lista_de_jogadas = ['a1', 'a2', 'a3', 'b1', 'b2','b3', 'c1', 'c2', 'c3']
 	jogada_1 = 0
