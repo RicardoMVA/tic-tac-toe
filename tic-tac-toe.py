@@ -38,10 +38,6 @@ class Player(object):
 				self.symbol = 'O'
 			return self.symbol
 
-	def set_symbol_fast(self, symbol):
-		self.symbol = symbol
-		return self.symbol
-
 	def get_symbol(self):
 		return self.symbol
 
@@ -67,9 +63,9 @@ def game_on():
 			time.sleep(1)
 			player_1.set_symbol()
 			if player_1.get_symbol() == 'X':
-				player_2.set_symbol_fast('O')
+				player_2.symbol = 'O'
 			else:
-				player_2.set_symbol_fast('X')
+				player_2.symbol = 'X'
 			break
 
 	while True:
