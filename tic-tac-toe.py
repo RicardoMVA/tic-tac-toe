@@ -67,6 +67,11 @@ def game_on():
 		else:
 			print('\n  Hi, ', player_1.show_name())
 			time.sleep(1)
+			player_1.set_symbol()
+			if player_1.get_symbol() == 'X':
+				player_2.set_symbol_fast('O')
+			else:
+				player_2.set_symbol_fast('X')
 			break
 
 	while True:
