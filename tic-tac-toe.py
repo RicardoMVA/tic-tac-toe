@@ -7,39 +7,31 @@ time.sleep(1.5)
 print('\n  To play, you need to input coordinates')
 print('  For example: A1 or B2, got it?')
 print("  Then, let's play!")
-time.sleep(1.5)
+time.sleep(3)
 print(graphics.board_start())
 
 class Player(object):
 
 	def __init__(self, name, symbol):
 		self.symbol = symbol
-
-	def set_name(self, name):
 		self.name = name
-		return self.name
-
-	def show_name(self):
-		return self.name
 
 	def set_symbol(self):
 		symbol = ''
 		self.symbol = symbol
-		symbol = input("Choose 'X' or 'O' as your symbol: ").lower()
+		symbol = input("  Choose 'X' or 'O' as your symbol: ").lower()
 		while symbol != 'x' and symbol != 'o':
-			print("Pick a valid symbol")
-			symbol = input("Choose 'X' or 'O' as your symbol: ").lower()
+			print("  Pick a valid symbol")
+			symbol = input("  Choose 'X' or 'O' as your symbol: ").lower()
 		else:
 			if symbol == 'x':
-				print("You pick 'X', so player 2 will use 'O'")
+				print("  You pick 'X', so player 2 will use 'O'")
 				self.symbol = 'X'
 			else:
-				print("You pick 'O', so player 2 will use 'X'")
+				print("  You pick 'O', so player 2 will use 'X'")
 				self.symbol = 'O'
 			return self.symbol
 
-	def get_symbol(self):
-		return self.symbol
 
 def game_on():
 
@@ -52,35 +44,35 @@ def game_on():
 	player_2 = Player(0,0)
 	
 	while True:
-		player_1.set_name(input('\n  Name of the first player: '))
+		player_1.name = input('\n  Name of the first player: ')
 		time.sleep(1)		
-		if player_1.show_name() == '' or player_1.show_name() == ' ':
+		if player_1.name == '' or player_1.name == ' ':
 			print('  Pick a valid name!')
 			time.sleep(1)
 			continue
 		else:
-			print('\n  Hi, ', player_1.show_name())
+			print('\n  Hi, ', player_1.name)
 			time.sleep(1)
 			player_1.set_symbol()
-			if player_1.get_symbol() == 'X':
+			if player_1.symbol == 'X':
 				player_2.symbol = 'O'
 			else:
 				player_2.symbol = 'X'
 			break
 
 	while True:
-		player_2.set_name(input('\n  Name of the second player: '))
+		player_2.name = input('\n  Name of the second player: ')
 		time.sleep(1)
-		if player_2.show_name() == player_1.show_name():
+		if player_2.name == player_1.name:
 			print('  Pick a different name from player 1!')
 			time.sleep(1)
 			continue
-		elif player_2.show_name() == '' or player_2.show_name() == ' ':
+		elif player_2.name == '' or player_2.name == ' ':
 			print('  Pick a valid name!')
 			time.sleep(1)
 			continue
 		else:
-			print('\n  Hi, ', player_2.show_name())
+			print('\n  Hi, ', player_2.name)
 			time.sleep(1)
 			break
 
@@ -121,7 +113,7 @@ def game_on():
 
 	while True:
 		if winner_1 == True:
-			print('  %s won the game!' %(player_1.show_name()))
+			print('  %s won the game!' %(player_1.name))
 			repeat = input('  Want to play again?\n  ')
 			if repeat == 'yes' or repeat == 'Yes' or repeat == 'y':
 				graphics.board_start()
@@ -132,7 +124,7 @@ def game_on():
 				break 
 
 		elif winner_2 == True:
-			print('  %s won the game!' %(player_2.show_name()))
+			print('  %s won the game!' %(player_2.name))
 			repeat = input('  Want to play again?\n  ')
 			if repeat == 'yes' or repeat == 'Yes' or repeat == 'y':
 				graphics.board_start()
@@ -144,7 +136,7 @@ def game_on():
 		
 		else:
 			while winner_1 == False and winner_2 == False:
-				play_1 = input('\n  %s, pick a coordinate: ' %(player_1.show_name())).lower()			  				
+				play_1 = input('\n  %s, pick a coordinate: ' %(player_1.name)).lower()			  				
 				if play_1 not in play_list:
 					print('  Invalid play')
 					continue
@@ -169,7 +161,7 @@ def game_on():
 							break
 					else:
 						while True:
-							play_2 = input('\n  %s, pick a coordinate: ' %(player_2.show_name())).lower()  			  							
+							play_2 = input('\n  %s, pick a coordinate: ' %(player_2.name)).lower()  			  							
 							if play_2 not in play_list:
 								print('  Invalid play')
 								continue
