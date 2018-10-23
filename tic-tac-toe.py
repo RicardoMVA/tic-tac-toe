@@ -7,31 +7,28 @@ time.sleep(1.5)
 print('\n  To play, you need to input coordinates')
 print('  For example: A1 or B2, got it?')
 print("  Then, let's play!")
-time.sleep(1.5)
+time.sleep(3)
 print(graphics.board_start())
 
 class Player(object):
 
 	def __init__(self, name, symbol):
 		self.symbol = symbol
-
-	def set_name(self, name):
 		self.name = name
-		return self.name
 
 	def set_symbol(self):
 		symbol = ''
 		self.symbol = symbol
-		symbol = input("Choose 'X' or 'O' as your symbol: ").lower()
+		symbol = input("  Choose 'X' or 'O' as your symbol: ").lower()
 		while symbol != 'x' and symbol != 'o':
-			print("Pick a valid symbol")
-			symbol = input("Choose 'X' or 'O' as your symbol: ").lower()
+			print("  Pick a valid symbol")
+			symbol = input("  Choose 'X' or 'O' as your symbol: ").lower()
 		else:
 			if symbol == 'x':
-				print("You pick 'X', so player 2 will use 'O'")
+				print("  You pick 'X', so player 2 will use 'O'")
 				self.symbol = 'X'
 			else:
-				print("You pick 'O', so player 2 will use 'X'")
+				print("  You pick 'O', so player 2 will use 'X'")
 				self.symbol = 'O'
 			return self.symbol
 
@@ -47,7 +44,7 @@ def game_on():
 	player_2 = Player(0,0)
 	
 	while True:
-		player_1.set_name(input('\n  Name of the first player: '))
+		player_1.name = input('\n  Name of the first player: ')
 		time.sleep(1)		
 		if player_1.name == '' or player_1.name == ' ':
 			print('  Pick a valid name!')
@@ -64,7 +61,7 @@ def game_on():
 			break
 
 	while True:
-		player_2.set_name(input('\n  Name of the second player: '))
+		player_2.name = input('\n  Name of the second player: ')
 		time.sleep(1)
 		if player_2.name == player_1.name:
 			print('  Pick a different name from player 1!')
