@@ -35,8 +35,6 @@ class Player(object):
 				self.symbol = 'O'
 			return self.symbol
 
-	def get_symbol(self):
-		return self.symbol
 
 def game_on():
 
@@ -59,7 +57,7 @@ def game_on():
 			print('\n  Hi, ', player_1.name)
 			time.sleep(1)
 			player_1.set_symbol()
-			if player_1.get_symbol() == 'X':
+			if player_1.symbol == 'X':
 				player_2.symbol = 'O'
 			else:
 				player_2.symbol = 'X'
