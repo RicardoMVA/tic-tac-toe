@@ -55,6 +55,30 @@ def player_name(self):
 			break
 
 
+def check_winner(lst):
+#
+# checks for winning combination in passed lst:
+#
+	if 'a1' in lst and 'a2' in lst and 'a3' in lst:
+		return True
+	elif 'b1' in lst and 'b2' in lst and 'b3' in lst:
+		return True
+	elif 'c1' in lst and 'c2' in lst and 'c3' in lst:
+		return True
+	elif 'a1' in lst and 'b1' in lst and 'c1' in lst:
+		return True
+	elif 'a2' in lst and 'b2' in lst and 'c2' in lst:
+		return True
+	elif 'a3' in lst and 'b3' in lst and 'c3' in lst:
+		return True
+	elif 'a1' in lst and 'b2' in lst and 'c3' in lst:
+		return True
+	elif 'c1' in lst and 'b2' in lst and 'a3' in lst:
+		return True
+	else:
+		return False
+
+
 def game_on():
 
 	#
@@ -73,28 +97,8 @@ def game_on():
 	player_name(player_2)
 
 
-	#
-	# Winner check:
-	#
-	def check_winner(lst):
-		if 'a1' in lst and 'a2' in lst and 'a3' in lst:
-			return True
-		elif 'b1' in lst and 'b2' in lst and 'b3' in lst:
-			return True
-		elif 'c1' in lst and 'c2' in lst and 'c3' in lst:
-			return True
-		elif 'a1' in lst and 'b1' in lst and 'c1' in lst:
-			return True
-		elif 'a2' in lst and 'b2' in lst and 'c2' in lst:
-			return True
-		elif 'a3' in lst and 'b3' in lst and 'c3' in lst:
-			return True
-		elif 'a1' in lst and 'b2' in lst and 'c3' in lst:
-			return True
-		elif 'c1' in lst and 'b2' in lst and 'a3' in lst:
-			return True
-		else:
-			return False
+
+
 
 	#
 	# Game logic:
