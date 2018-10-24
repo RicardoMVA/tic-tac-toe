@@ -6,9 +6,9 @@ print('\n\n  Welcome to Tic-Tac-Toe!')
 time.sleep(1.5)
 print('\n  To play, you need to input coordinates')
 print('  For example: A1 or B2, got it?')
-print("  Then, let's play!")
-time.sleep(3)
 print(graphics.board_start())
+time.sleep(3)
+print("  Then, let's play!")
 
 class Player(object):
 
