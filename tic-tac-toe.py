@@ -108,8 +108,9 @@ def game_on():
 	lst_2 = []
 	winner_2 = False
 	repeat = 0
+	draw = False
 
-	while True:
+	while draw == False:
 		if winner_1 == True:
 			print('  %s won the game!' %(player_1.name))
 			repeat = input('  Want to play again?\n  ')
@@ -149,6 +150,7 @@ def game_on():
 						break
 					elif len(lst_1) == 5:
 						print('  Draw!')
+						draw = True
 						repeat = input('  Want to play again?\n  ')
 						if repeat == 'yes' or repeat == 'Yes' or repeat == 'y':
 							graphics.board_start()
