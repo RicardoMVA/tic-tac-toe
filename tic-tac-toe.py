@@ -25,54 +25,53 @@ class Player(object):
 			if symbol == 'x':
 				print("  You pick 'X', so player 2 will use 'O'")
 				self.symbol = 'X'
+				player_2.symbol = 'O'
 			else:
 				print("  You pick 'O', so player 2 will use 'X'")
 				self.symbol = 'O'
+				player_2.symbol = 'X'
 			return self.symbol
+
+
+def player_name(self):
+	#
+	# set player name
+	#
+	while True:
+		self.name = input('  ')
+		time.sleep(1)		
+		if self.name == '' or self.name == ' ':
+			print('  Pick a valid name!')
+			time.sleep(1)
+			continue
+		elif player_2.name == player_1.name:
+			print('  Pick a different name from player 1!')
+			time.sleep(1)
+			print('\n  Name of the second player: ')
+			continue
+		else:
+			print('\n  Hi, ', self.name)
+			time.sleep(1)
+			break
 
 
 def game_on():
 
 	#
-  	# Player names:
+  	# starts game and allow for replay:
  	#
 	global player_1, player_2
 
 	player_1 = Player(0,0)
 	player_2 = Player(0,0)
 	
-	while True:
-		player_1.name = input('\n  Name of the first player: ')
-		time.sleep(1)		
-		if player_1.name == '' or player_1.name == ' ':
-			print('  Pick a valid name!')
-			time.sleep(1)
-			continue
-		else:
-			print('\n  Hi, ', player_1.name)
-			time.sleep(1)
-			player_1.set_symbol()
-			if player_1.symbol == 'X':
-				player_2.symbol = 'O'
-			else:
-				player_2.symbol = 'X'
-			break
+	print('\n  Name of the first player: ')
+	player_name(player_1)
+	player_1.set_symbol()
 
-	while True:
-		player_2.name = input('\n  Name of the second player: ')
-		time.sleep(1)
-		if player_2.name == player_1.name:
-			print('  Pick a different name from player 1!')
-			time.sleep(1)
-			continue
-		elif player_2.name == '' or player_2.name == ' ':
-			print('  Pick a valid name!')
-			time.sleep(1)
-			continue
-		else:
-			print('\n  Hi, ', player_2.name)
-			time.sleep(1)
-			break
+	print('\n  Name of the second player: ')
+	player_name(player_2)
+
 
 	#
 	# Winner check:
