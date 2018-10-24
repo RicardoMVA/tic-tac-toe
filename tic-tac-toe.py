@@ -17,10 +17,10 @@ class Player(object):
 		self.name = name
 
 	def set_symbol(self):
-		symbol = input("  Choose 'X' or 'O' as your symbol: ").lower()
+		symbol = input("\n  Choose 'X' or 'O' as your symbol: ").lower()
 		while symbol != 'x' and symbol != 'o':
 			print("  Pick a valid symbol")
-			symbol = input("  Choose 'X' or 'O' as your symbol: ").lower()
+			symbol = input("\n  Choose 'X' or 'O' as your symbol: ").lower()
 		else:
 			if symbol == 'x':
 				print("  You pick 'X', so player 2 will use 'O'")
