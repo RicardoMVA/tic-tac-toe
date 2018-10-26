@@ -80,24 +80,6 @@ def check_winner(lst):
 		return False
 
 
-def game_on():
-
-	#
-  	# starts game and allow for replay:
- 	#
-	global player_1, player_2
-
-	player_1 = Player(0,0)
-	player_2 = Player(0,0)
-	
-	print('\n  Name of the first player: ')
-	player_name(player_1)
-	player_1.set_symbol()
-
-	print('\n  Name of the second player: ')
-	player_name(player_2)
-
-
 def run_game():
 	#
   	# starts game from scratch:
