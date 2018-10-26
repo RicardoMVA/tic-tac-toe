@@ -54,6 +54,49 @@ def player_name(self):
 			print('\n  Hi, ', self.name)
 			time.sleep(1)
 			break
+	
+
+def player_turn():
+	#
+	# Determines which player is making a move
+	#
+	global count, current_player, current_symbol, current_list
+
+	if count % 2 == 0:
+		current_player = player_1.name
+		current_symbol = player_1.symbol
+		current_list = lst_1
+	else:
+		current_player = player_2.name
+		current_symbol = player_2.symbol
+		current_list = lst_2
+
+
+def get_move():
+	#
+	# Takes user move, check if it is valid, and puts it on the board
+	#
+	global count, current_player, current_symbol, current_list, play_list, draw
+	play = 0
+
+	if play_list == []:
+		draw = True
+		
+	else:
+		play = input('  %s, pick your play: ' %(current_player)).lower()
+
+		while play not in play_list:
+			print('  Pick a valid play')
+			play = input('  %s, pick your play: ' %(current_player)).lower()
+			continue
+		else:
+			play_list.remove(play)
+			current_list.append(play)
+			graphics.print_symbol(play, current_symbol)
+			print(graphics.board)
+			check_winner(current_list)
+			time.sleep(1)
+			count += 1
 
 
 def check_winner(lst):
