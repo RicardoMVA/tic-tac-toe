@@ -78,8 +78,25 @@ def check_winner(lst):
 		return True
 	else:
 		return False
+	
 
+def repeat():
+	#
+	# ask if user wants to play again
+	#
+	global game_running
 
+	repeat = input('  Want to play again?\n  ').lower()
+
+	if repeat == 'yes' or repeat == 'y':
+		time.sleep(1)
+		game_running = True
+
+	else:
+		print('  No? Ok, thanks for playing!')
+		game_running = False
+
+		
 def run_game():
 	#
   	# starts game from scratch:
