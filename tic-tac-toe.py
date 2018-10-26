@@ -97,89 +97,40 @@ def game_on():
 	player_name(player_2)
 
 
-
-
-
+def run_game():
 	#
-	# Game logic:
-	#
+  	# starts game from scratch:
+ 	#
+	global count, current_player, current_symbol, current_list, play_list
+	global player_1, player_2, lst_1, lst_2
+
+	count = 0
 	play_list = ['a1', 'a2', 'a3', 'b1', 'b2','b3', 'c1', 'c2', 'c3']
-	play_1 = 0
+	current_list = []
+	player_1 = Player('abc',0)
 	lst_1 = []
-	winner_1 = False
-	play_2 = 0
+	player_2 = Player('def',0)
 	lst_2 = []
-	winner_2 = False
-	repeat = 0
-	draw = False
 
-	while draw == False:
-		if winner_1 == True:
-			print('  %s won the game!' %(player_1.name))
-			repeat = input('  Want to play again?\n  ')
-			if repeat == 'yes' or repeat == 'Yes' or repeat == 'y':
-				graphics.board_start()
-				game_on()
-				break
-			else:
-				print('  No? Ok, thanks for playing!')
-				break 
+	graphics.board_start()
+	print("  Then, let's play!")
+	
+	print('\n  Name of the first player: ')
+	player_name(player_1)
+	player_1.set_symbol()
 
-		elif winner_2 == True:
-			print('  %s won the game!' %(player_2.name))
-			repeat = input('  Want to play again?\n  ')
-			if repeat == 'yes' or repeat == 'Yes' or repeat == 'y':
-				graphics.board_start()
-				game_on()
-				break
-			else:
-				print('  No? Ok, thanks for playing!')
-				break
+	print('\n  Name of the second player: ')
+	player_name(player_2)
+
+
+	while check_winner(current_list) == False:
+		player_turn()
+		get_move()
+		continue
+
+	else:
+		print('  %s won the game!' %(current_player))
+		repeat()
+
 		
-		else:
-			while winner_1 == False and winner_2 == False:
-				play_1 = input('\n  %s, pick a coordinate: ' %(player_1.name)).lower()			  				
-				if play_1 not in play_list:
-					print('  Invalid play')
-					continue
-				else:
-					play_list.remove(play_1)				
-					lst_1.append(play_1)
-					graphics.circle(play_1)									
-					print(graphics.board)
-					winner_1 = check_winner(lst_1)
-					time.sleep(1)
-					if winner_1 == True:
-						break
-					elif len(lst_1) == 5:
-						print('  Draw!')
-						draw = True
-						repeat = input('  Want to play again?\n  ')
-						if repeat == 'yes' or repeat == 'Yes' or repeat == 'y':
-							graphics.board_start()
-							game_on()
-							break
-						else:
-							print('  No? Ok, thanks for playing!')
-							break
-					else:
-						while True:
-							play_2 = input('\n  %s, pick a coordinate: ' %(player_2.name)).lower()  			  							
-							if play_2 not in play_list:
-								print('  Invalid play')
-								continue
-							else:
-								play_list.remove(play_2)
-								lst_2.append(play_2)
-								graphics.ex(play_2)	
-								print(graphics.board)
-								winner_2 = check_winner(lst_2)
-								time.sleep(1)
-								if winner_2 == True:
-									break
-								else:
-									break
-					continue			
-			continue
-
 game_on()
