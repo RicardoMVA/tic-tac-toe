@@ -11,6 +11,7 @@ time.sleep(3)
 
 game_running = True
 
+
 class Player(object):
 	#
 	# stores player name and chosen symbol
@@ -142,6 +143,7 @@ def repeat():
 		print('  No? Ok, thanks for playing!')
 		game_running = False
 
+
 def run_game():
 	#
   	# starts game from scratch:
@@ -179,7 +181,6 @@ def run_game():
 		else:
 			print('  Draw!')
 			repeat()
-		
 
 
 while game_running == True:
