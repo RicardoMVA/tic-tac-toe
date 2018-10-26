@@ -8,7 +8,8 @@ print('\n  To play, you need to input coordinates')
 print('  For example: A1 or B2, got it?')
 print(graphics.board_start())
 time.sleep(3)
-print("  Then, let's play!")
+
+game_running = True
 
 class Player(object):
 
@@ -122,7 +123,6 @@ def run_game():
 	print('\n  Name of the second player: ')
 	player_name(player_2)
 
-
 	while check_winner(current_list) == False:
 		player_turn()
 		get_move()
@@ -132,5 +132,7 @@ def run_game():
 		print('  %s won the game!' %(current_player))
 		repeat()
 
-		
-game_on()
+
+while game_running == True:
+	run_game()
+	continue
