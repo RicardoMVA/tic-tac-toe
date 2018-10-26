@@ -8,13 +8,17 @@ print('\n  To play, you need to input coordinates')
 print('  For example: A1 or B2, got it?')
 print(graphics.board_start())
 time.sleep(3)
-print("  Then, let's play!")
+
+game_running = True
+
 
 class Player(object):
-
+	#
+	# stores player name and chosen symbol
+	#
 	def __init__(self, name, symbol):
-		self.symbol = symbol
 		self.name = name
+		self.symbol = symbol	
 
 	def set_symbol(self):
 		symbol = input("\n  Choose 'X' or 'O' as your symbol: ").lower()
@@ -22,6 +26,7 @@ class Player(object):
 			print("  Pick a valid symbol")
 			symbol = input("\n  Choose 'X' or 'O' as your symbol: ").lower()
 		else:
+			time.sleep(1)
 			if symbol == 'x':
 				print("  You pick 'X', so player 2 will use 'O'")
 				self.symbol = 'X'
@@ -55,10 +60,53 @@ def player_name(self):
 			break
 
 
+def player_turn():
+	#
+	# Determines which player is making a move
+	#
+	global count, current_player, current_symbol, current_list
+
+	if count % 2 == 0:
+		current_player = player_1.name
+		current_symbol = player_1.symbol
+		current_list = lst_1
+	else:
+		current_player = player_2.name
+		current_symbol = player_2.symbol
+		current_list = lst_2
+
+
+def get_move():
+	#
+	# Takes user move, check if it is valid, and puts it on the board
+	#
+	global count, current_player, current_symbol, current_list, play_list, draw
+	play = 0
+
+	if play_list == []:
+		draw = True
+		
+	else:
+		play = input('  %s, pick your play: ' %(current_player)).lower()
+
+		while play not in play_list:
+			print('  Pick a valid play')
+			play = input('  %s, pick your play: ' %(current_player)).lower()
+			continue
+		else:
+			play_list.remove(play)
+			current_list.append(play)
+			graphics.print_symbol(play, current_symbol)
+			print(graphics.board)
+			check_winner(current_list)
+			time.sleep(1)
+			count += 1
+
+
 def check_winner(lst):
-#
-# checks for winning combination in passed lst:
-#
+	#
+	# checks for winning combination in passed lst:
+	#
 	if 'a1' in lst and 'a2' in lst and 'a3' in lst:
 		return True
 	elif 'b1' in lst and 'b2' in lst and 'b3' in lst:
@@ -79,15 +127,41 @@ def check_winner(lst):
 		return False
 
 
-def game_on():
-
+def repeat():
 	#
-  	# starts game and allow for replay:
- 	#
-	global player_1, player_2
+	# ask if user wants to play again
+	#
+	global game_running
 
-	player_1 = Player(0,0)
-	player_2 = Player(0,0)
+	repeat = input('  Want to play again?\n  ').lower()
+
+	if repeat == 'yes' or repeat == 'y':
+		time.sleep(1)
+		game_running = True
+
+	else:
+		print('  No? Ok, thanks for playing!')
+		game_running = False
+
+
+def run_game():
+	#
+  	# starts game from scratch:
+ 	#
+	global count, current_player, current_symbol, current_list, play_list
+	global player_1, player_2, lst_1, lst_2, draw
+
+	count = 0
+	play_list = ['a1', 'a2', 'a3', 'b1', 'b2','b3', 'c1', 'c2', 'c3']
+	current_list = []
+	player_1 = Player('abc',0)
+	lst_1 = []
+	player_2 = Player('def',0)
+	lst_2 = []
+	draw = False
+
+	graphics.board_start()
+	print("  Then, let's play!")
 	
 	print('\n  Name of the first player: ')
 	player_name(player_1)
@@ -96,90 +170,19 @@ def game_on():
 	print('\n  Name of the second player: ')
 	player_name(player_2)
 
-
-
-
-
-	#
-	# Game logic:
-	#
-	play_list = ['a1', 'a2', 'a3', 'b1', 'b2','b3', 'c1', 'c2', 'c3']
-	play_1 = 0
-	lst_1 = []
-	winner_1 = False
-	play_2 = 0
-	lst_2 = []
-	winner_2 = False
-	repeat = 0
-	draw = False
-
-	while draw == False:
-		if winner_1 == True:
-			print('  %s won the game!' %(player_1.name))
-			repeat = input('  Want to play again?\n  ')
-			if repeat == 'yes' or repeat == 'Yes' or repeat == 'y':
-				graphics.board_start()
-				game_on()
-				break
-			else:
-				print('  No? Ok, thanks for playing!')
-				break 
-
-		elif winner_2 == True:
-			print('  %s won the game!' %(player_2.name))
-			repeat = input('  Want to play again?\n  ')
-			if repeat == 'yes' or repeat == 'Yes' or repeat == 'y':
-				graphics.board_start()
-				game_on()
-				break
-			else:
-				print('  No? Ok, thanks for playing!')
-				break
-		
+	while check_winner(current_list) == False and draw == False:
+		player_turn()
+		get_move()
+		continue
+	else:
+		if check_winner(current_list) == True:
+			print('  %s won the game!' %(current_player))
+			repeat()
 		else:
-			while winner_1 == False and winner_2 == False:
-				play_1 = input('\n  %s, pick a coordinate: ' %(player_1.name)).lower()			  				
-				if play_1 not in play_list:
-					print('  Invalid play')
-					continue
-				else:
-					play_list.remove(play_1)				
-					lst_1.append(play_1)
-					graphics.circle(play_1)									
-					print(graphics.board)
-					winner_1 = check_winner(lst_1)
-					time.sleep(1)
-					if winner_1 == True:
-						break
-					elif len(lst_1) == 5:
-						print('  Draw!')
-						draw = True
-						repeat = input('  Want to play again?\n  ')
-						if repeat == 'yes' or repeat == 'Yes' or repeat == 'y':
-							graphics.board_start()
-							game_on()
-							break
-						else:
-							print('  No? Ok, thanks for playing!')
-							break
-					else:
-						while True:
-							play_2 = input('\n  %s, pick a coordinate: ' %(player_2.name)).lower()  			  							
-							if play_2 not in play_list:
-								print('  Invalid play')
-								continue
-							else:
-								play_list.remove(play_2)
-								lst_2.append(play_2)
-								graphics.ex(play_2)	
-								print(graphics.board)
-								winner_2 = check_winner(lst_2)
-								time.sleep(1)
-								if winner_2 == True:
-									break
-								else:
-									break
-					continue			
-			continue
+			print('  Draw!')
+			repeat()
 
-game_on()
+
+while game_running == True:
+	run_game()
+	continue
