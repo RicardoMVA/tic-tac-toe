@@ -12,10 +12,12 @@ time.sleep(3)
 game_running = True
 
 class Player(object):
-
+	#
+	# stores player name and chosen symbol
+	#
 	def __init__(self, name, symbol):
-		self.symbol = symbol
 		self.name = name
+		self.symbol = symbol	
 
 	def set_symbol(self):
 		symbol = input("\n  Choose 'X' or 'O' as your symbol: ").lower()
@@ -23,6 +25,7 @@ class Player(object):
 			print("  Pick a valid symbol")
 			symbol = input("\n  Choose 'X' or 'O' as your symbol: ").lower()
 		else:
+			time.sleep(1)
 			if symbol == 'x':
 				print("  You pick 'X', so player 2 will use 'O'")
 				self.symbol = 'X'
@@ -54,7 +57,7 @@ def player_name(self):
 			print('\n  Hi, ', self.name)
 			time.sleep(1)
 			break
-	
+
 
 def player_turn():
 	#
@@ -100,9 +103,9 @@ def get_move():
 
 
 def check_winner(lst):
-#
-# checks for winning combination in passed lst:
-#
+	#
+	# checks for winning combination in passed lst:
+	#
 	if 'a1' in lst and 'a2' in lst and 'a3' in lst:
 		return True
 	elif 'b1' in lst and 'b2' in lst and 'b3' in lst:
@@ -121,7 +124,7 @@ def check_winner(lst):
 		return True
 	else:
 		return False
-	
+
 
 def repeat():
 	#
@@ -139,13 +142,12 @@ def repeat():
 		print('  No? Ok, thanks for playing!')
 		game_running = False
 
-		
 def run_game():
 	#
   	# starts game from scratch:
  	#
 	global count, current_player, current_symbol, current_list, play_list
-	global player_1, player_2, lst_1, lst_2
+	global player_1, player_2, lst_1, lst_2, draw
 
 	count = 0
 	play_list = ['a1', 'a2', 'a3', 'b1', 'b2','b3', 'c1', 'c2', 'c3']
@@ -154,6 +156,7 @@ def run_game():
 	lst_1 = []
 	player_2 = Player('def',0)
 	lst_2 = []
+	draw = False
 
 	graphics.board_start()
 	print("  Then, let's play!")
@@ -165,14 +168,18 @@ def run_game():
 	print('\n  Name of the second player: ')
 	player_name(player_2)
 
-	while check_winner(current_list) == False:
+	while check_winner(current_list) == False and draw == False:
 		player_turn()
 		get_move()
 		continue
-
 	else:
-		print('  %s won the game!' %(current_player))
-		repeat()
+		if check_winner(current_list) == True:
+			print('  %s won the game!' %(current_player))
+			repeat()
+		else:
+			print('  Draw!')
+			repeat()
+		
 
 
 while game_running == True:
